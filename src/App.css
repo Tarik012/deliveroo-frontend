@@ -1,0 +1,95 @@
+h1 {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.App-container {
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.header-container {
+  height: fit-content;
+  margin: 0 40px;
+  max-width: 1024px;
+  border: 2px solid black;
+}
+
+.main-container {
+  background-color: #f3f5f5;
+  margin: 30px 40px 0 40px;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+
+.div-logo {
+  margin-bottom: 30px;
+  padding-left: 30px;
+  border-bottom: 0.5px solid gray;
+  width: 100vw;
+}
+
+.div-logo img {
+  height: 80px;
+  width: 200px;
+}
+
+.div-restaurant {
+  display: flex;
+}
+
+.div-restaurant img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+
+.infos-restaurant {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.infos-restaurant p {
+  font-size: 15px;
+  text-align: left;
+}
+
+.picture-restaurant {
+  flex: 1;
+}
+
+.menu-container {
+  margin-top: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.menu-container img {
+  width: 100px;
+  height: 100px;
+}
+
+.infos-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 3;
+}
+
+.picture-menu {
+  display: flex;
+  flex: 1;
+}
+
+.price {
+  display: flex;
+  gap: 20px;
+}
