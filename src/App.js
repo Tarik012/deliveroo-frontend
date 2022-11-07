@@ -62,7 +62,7 @@ function App() {
                     title={menu.title}
                     description={menu.description}
                     price={menu.price}
-                    populaire={menu.populaire}
+                    popular={menu.popular}
                     picture={menu.picture}
                   />
                 );

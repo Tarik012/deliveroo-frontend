@@ -1,4 +1,4 @@
-const Menu = ({ title, description, price, populaire, picture }) => {
+const Menu = ({ title, description, price, popular, picture }) => {
   return (
     <div className="menu-container">
       <div className="infos-menu">
@@ -6,7 +6,7 @@ const Menu = ({ title, description, price, populaire, picture }) => {
         <p>{description}</p>
         <div className="price">
           <p>{price}</p>
-          <p>Populaire</p>
+          <p className={popular === true ? "red" : null}>Populaire</p>
         </div>
       </div>
       <div className="picture-menu">

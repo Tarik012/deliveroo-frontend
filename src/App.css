@@ -3,35 +3,19 @@ h1 {
   font-weight: bold;
 }
 
-h2 {
-  font-size: 17px;
-  font-weight: bold;
-}
-
 .App-container {
   margin: 0 auto;
-  height: 100vh;
+  background-color: white;
 }
 
-.header-container {
-  height: fit-content;
-  margin: 0 40px;
-  max-width: 1024px;
-  border: 2px solid black;
-}
-
-.main-container {
-  background-color: #f3f5f5;
-  margin: 30px 40px 0 40px;
-  width: 100vw;
-  flex-wrap: wrap;
+.red {
+  color: red;
 }
 
 .div-logo {
   margin-bottom: 30px;
-  padding-left: 30px;
+  padding-left: 200px;
   border-bottom: 0.5px solid gray;
-  width: 100vw;
 }
 
 .div-logo img {
@@ -39,8 +23,47 @@ h2 {
   width: 200px;
 }
 
-.div-restaurant {
+.main-container {
+  padding-top: 20px;
+  background-color: #f3f5f5;
+  width: 100vw;
+}
+
+.main-container h2 {
+  margin: 0 200px 30px 200px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.menu-container {
+  margin: 0 200px 30px 200px;
+  background-color: white;
+  width: 50%;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-container p,
+h3 {
+  color: #585c5c;
+}
+
+.menu-container h3 {
+  font-size: 18px;
+}
+
+.menu-container img {
+  width: 100px;
+  height: 100px;
+}
+
+.div-restaurant {
+  margin: 0 200px 30px 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .div-restaurant img {
@@ -50,31 +73,29 @@ h2 {
 }
 
 .infos-restaurant {
-  flex: 2;
+  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
 .infos-restaurant p {
-  font-size: 15px;
+  font-size: 17px;
+  line-height: 1.5em;
   text-align: left;
+  color: #585c5c;
 }
 
 .picture-restaurant {
-  flex: 1;
+  flex: 2;
 }
 
-.menu-container {
-  margin-top: 20px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-}
-
-.menu-container img {
-  width: 100px;
-  height: 100px;
+.picture-restaurant img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .infos-menu {
@@ -87,6 +108,10 @@ h2 {
 .picture-menu {
   display: flex;
   flex: 1;
+}
+
+.picture-menu img {
+  border-radius: 5px;
 }
 
 .price {
