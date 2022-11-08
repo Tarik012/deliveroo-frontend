@@ -25,12 +25,13 @@ function App() {
         "https://site--backend-deliveroo--kt4528vcvgh4.code.run/"
       );
 
-      console.log(response.data.categories);
+      //console.log(response.data.categories);
 
       setData(response.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error.response);
+      //console.log(error.message)
     }
   };
 

@@ -3,9 +3,20 @@ h1 {
   font-weight: bold;
 }
 
+/* span > img {
+  border: 1px solid black;
+  width: 10px;
+  height: 10px;
+  object-fit: cover;
+} */
+
 .App-container {
   margin: 0 auto;
   background-color: white;
+}
+
+p {
+  color: #585c5c;
 }
 
 .red {
@@ -48,7 +59,7 @@ h1 {
 
 .main-container h2 {
   margin: 0 150px 30px 150px;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -58,12 +69,16 @@ h1 {
   width: 50%;
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
   flex-shrink: 0;
   overflow: hidden;
 }
 
 .menu {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   height: 200px;
@@ -71,7 +86,7 @@ h1 {
 }
 
 .infos-menu {
-  border: 1px solid red;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,13 +99,13 @@ h1 {
   overflow: hidden;
 }
 
-.menu-container p,
-h3 {
+.menu-container h3 {
   color: #585c5c;
 }
 
 .menu-container h3 {
-  font-size: 18px;
+  font-size: 16px;
+  color: black;
 }
 
 .menu-container img {
@@ -142,4 +157,10 @@ h3 {
 .price {
   display: flex;
   gap: 20px;
+}
+
+.cart {
+  border: 1px solid red;
+  height: 100px;
+  width: 100px;
 }
