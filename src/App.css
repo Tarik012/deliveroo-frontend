@@ -51,25 +51,28 @@ p {
   object-fit: cover;
 }
 
+/*DIV QUI CONTIENT TOUTES LES DIV SOUS LE HEADER*/
 .main-container {
   margin-top: 20px;
   padding-top: 20px;
   background-color: #f3f5f5;
+  display: flex;
+  align-items: flex-start;
 }
 
-.main-container h2 {
-  margin: 0 150px 30px 150px;
+.section-gauche h2 {
+  margin-bottom: 20px;
   font-size: 19px;
   font-weight: bold;
 }
 
+/*LES MENUS SOUS LA CATEGORIE*/
 .menu-container {
-  margin-left: 150px;
   box-sizing: border-box;
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: space-between;
   flex-shrink: 0;
   overflow: hidden;
@@ -159,8 +162,43 @@ p {
   gap: 20px;
 }
 
-.cart {
+/*DIV QUI CONTIENT LA DIV SECTION-GAUCHE ET ITEM-CART A DROITE (panier)*/
+.sections {
+  margin: 0 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-gauche {
+  flex: 1;
+}
+
+.item-cart {
   border: 1px solid red;
-  height: 100px;
+  height: fit-content;
   width: 100px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: #fff;
+}
+
+.title-itemcart {
+  background-color: #00cdbd;
+  border-radius: 5px;
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.title-itemcart h1 {
+  font-size: 18px;
+  color: white;
+}
+
+.cart-manage {
+  display: flex;
 }

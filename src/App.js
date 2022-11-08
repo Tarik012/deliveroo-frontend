@@ -6,6 +6,7 @@ import logoDeliveroo from "./assets/images/logo-deliveroo.png";
 // import des composants
 import Header from "./components/Header";
 import Menu from "./components/Menu";
+import ItemCart from "./components/ItemCart";
 
 // import des hooks
 import { useState, useEffect } from "react";
@@ -17,6 +18,7 @@ function App() {
   // déclaration des useState
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [cart, setCart] = useState([]);
 
   // récupération des données du fichier JSON
   const fetchData = async () => {
@@ -39,6 +41,35 @@ function App() {
     fetchData();
   }, []);
 
+  const handleRemove = (item) => {
+    const newCart = [...cart];
+    const found = cart.find((elem) => {
+      return elem.id === item.id;
+    });
+
+    if (found) {
+      found.quantity -= 1;
+    }
+    console.log("found", found);
+    setCart(newCart);
+  };
+
+  const handleClick = (item) => {
+    const newCart = [...cart];
+    const found = cart.find((elem) => {
+      return elem.id === item.id;
+    });
+
+    if (!found) {
+      newCart.push(item);
+    } else {
+      found.quantity += 1;
+    }
+
+    console.log("found", found);
+    setCart(newCart);
+  };
+
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (
@@ -49,33 +80,62 @@ function App() {
       <Header restaurant={data.restaurant} />
       <div className="main-container">
         {/* je parcours mon JSON pour récupèrer les noms de catégories*/}
-        {data.categories.map((elem, index) => {
-          // console.log(elem);
-          if (elem.meals.length !== 0) {
-            return (
-              <div key={index}>
-                <h2>{elem.name}</h2>
-                <div className="menu-container">
-                  {elem.meals.map((menu) => {
-                    //console.log("longueur meal>>", elem.meals.length);
-                    return (
-                      <Menu
-                        key={menu.id}
-                        title={menu.title}
-                        description={menu.description}
-                        price={menu.price}
-                        popular={menu.popular}
-                        picture={menu.picture}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <div className="sections">
+          <div className="section-gauche">
+            {data.categories.map((elem, index) => {
+              // console.log(elem);
+              if (elem.meals.length !== 0) {
+                return (
+                  <div key={index}>
+                    <h2>{elem.name}</h2>
+                    <div className="menu-container">
+                      {elem.meals.map((menu) => {
+                        //console.log("longueur meal>>", elem.meals.length);
+                        return (
+                          <Menu
+                            key={menu.id}
+                            id={menu.id}
+                            title={menu.title}
+                            description={menu.description}
+                            price={menu.price}
+                            popular={menu.popular}
+                            picture={menu.picture}
+                            cart={cart}
+                            setCart={setCart}
+                            handleClick={handleClick}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </div>
+          <div className="item-cart">
+            <div className="title-itemcart">
+              <h1>Valider mon panier</h1>
+            </div>
+            <div>
+              {cart.map((item, index) => {
+                //console.log("title dans mon map =>", item.title);
+
+                if (item.quantity < 1) return null;
+
+                return (
+                  <ItemCart
+                    key={index}
+                    item={item}
+                    handleClick={handleClick}
+                    handleRemove={handleRemove}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
