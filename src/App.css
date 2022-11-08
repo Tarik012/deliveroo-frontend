@@ -201,4 +201,25 @@ p {
 
 .cart-manage {
   display: flex;
+  border-bottom: 0.5px solid black;
+}
+
+.total-manage {
+  border: 1px solid red;
+}
+
+.sous-total {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.total {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,25 +1,27 @@
-const ItemCart = ({ item, handleClick, handleRemove }) => {
+const ItemCart = ({ item, handleAdd, handleRemove }) => {
   //console.log("title", title, price);
   return (
-    <div className="cart-manage">
-      <button
-        onClick={() => {
-          handleRemove(item);
-        }}
-      >
-        -
-      </button>
-      <p>{item.quantity}</p>
-      <button
-        onClick={() => {
-          handleClick(item);
-        }}
-      >
-        +
-      </button>
+    <div>
+      <div className="cart-manage">
+        <button
+          onClick={() => {
+            handleRemove(item);
+          }}
+        >
+          -
+        </button>
+        <p>{item.quantity}</p>
+        <button
+          onClick={() => {
+            handleAdd(item);
+          }}
+        >
+          +
+        </button>
 
-      <p>{item.title}</p>
-      <p>{item.price * item.quantity}</p>
+        <p>{item.title}</p>
+        <p>{item.price * item.quantity}</p>
+      </div>
     </div>
   );
 };

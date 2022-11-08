@@ -7,6 +7,7 @@ import logoDeliveroo from "./assets/images/logo-deliveroo.png";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
 import ItemCart from "./components/ItemCart";
+import Total from "./components/Total";
 
 // import des hooks
 import { useState, useEffect } from "react";
@@ -19,6 +20,8 @@ function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const [sousTotal, setSousTotal] = useState();
+  const [total, setTotal] = useState();
 
   // récupération des données du fichier JSON
   const fetchData = async () => {
@@ -50,24 +53,34 @@ function App() {
     if (found) {
       found.quantity -= 1;
     }
-    console.log("found", found);
+    //console.log("found", found);
     setCart(newCart);
   };
 
-  const handleClick = (item) => {
+  const handleAdd = (item) => {
     const newCart = [...cart];
     const found = cart.find((elem) => {
-      return elem.id === item.id;
+      return elem.id === item.id; //retourne l'objet found
     });
 
     if (!found) {
-      newCart.push(item);
+      newCart.push(item); //ajout nouveau menu
+      setTotal(item.price);
     } else {
       found.quantity += 1;
+      setTotal(1);
     }
 
-    console.log("found", found);
+    //console.log("found", found);
     setCart(newCart);
+  };
+
+  const getSousTotal = (cart) => {
+    console.log("cart=>", cart);
+  };
+
+  const getTotal = (cart) => {
+    console.log("test");
   };
 
   return isLoading ? (
@@ -100,9 +113,7 @@ function App() {
                             price={menu.price}
                             popular={menu.popular}
                             picture={menu.picture}
-                            cart={cart}
-                            setCart={setCart}
-                            handleClick={handleClick}
+                            handleAdd={handleAdd}
                           />
                         );
                       })}
@@ -128,11 +139,16 @@ function App() {
                   <ItemCart
                     key={index}
                     item={item}
-                    handleClick={handleClick}
+                    handleAdd={handleAdd}
                     handleRemove={handleRemove}
+                    sousTotal={sousTotal}
+                    total={total}
                   />
                 );
               })}
+            </div>
+            <div className="total-manage">
+              <Total getSousTotal={getSousTotal} getTotal={getTotal} />
             </div>
           </div>
         </div>

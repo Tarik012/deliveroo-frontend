@@ -7,9 +7,7 @@ const Menu = ({
   price,
   popular,
   picture,
-  cart,
-  setCart,
-  handleClick,
+  handleAdd,
 }) => {
   return (
     <div
@@ -21,7 +19,7 @@ const Menu = ({
           price: price,
           quantity: 1,
         };
-        handleClick(objet);
+        handleAdd(objet);
       }}
     >
       <div className="infos-menu">
