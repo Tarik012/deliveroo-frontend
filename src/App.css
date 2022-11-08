@@ -14,46 +14,74 @@ h1 {
 
 .div-logo {
   margin-bottom: 30px;
-  padding-left: 200px;
   border-bottom: 0.5px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .div-logo img {
   height: 80px;
   width: 200px;
+  padding-left: 150px;
+}
+
+.div-restaurant {
+  margin: 0 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.div-restaurant img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
 }
 
 .main-container {
+  margin-top: 20px;
   padding-top: 20px;
   background-color: #f3f5f5;
-  width: 100vw;
 }
 
 .main-container h2 {
-  margin: 0 200px 30px 200px;
+  margin: 0 150px 30px 150px;
   font-size: 17px;
   font-weight: bold;
 }
 
-/* .menu-container {
-  margin: 0 200px 30px 200px;
-  background-color: white;
+.menu-container {
+  margin-left: 150px;
+  box-sizing: border-box;
   width: 50%;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-} */
-
-.menu {
-  margin: 0 200px 30px 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
-.menu > div {
-  width: 30%;
+.menu {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  width: calc((100% / 2) - (3 * 5px));
+}
+
+.infos-menu {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  flex: 2;
+}
+
+.description {
+  height: 2em;
+  overflow: hidden;
 }
 
 .menu-container p,
@@ -68,20 +96,6 @@ h3 {
 .menu-container img {
   width: 100px;
   height: 100px;
-}
-
-.div-restaurant {
-  margin: 0 200px 30px 200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.div-restaurant img {
-  height: 130px;
-  width: 130px;
-  object-fit: cover;
 }
 
 .infos-restaurant {
@@ -110,20 +124,19 @@ h3 {
   border-radius: 5px;
 }
 
-.infos-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 3;
-}
-
 .picture-menu {
   display: flex;
-  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex: 1.5;
+  box-sizing: border-box;
 }
 
 .picture-menu img {
-  border-radius: 5px;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .price {

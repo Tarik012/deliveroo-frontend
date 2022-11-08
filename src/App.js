@@ -50,26 +50,30 @@ function App() {
         {/* je parcours mon JSON pour récupèrer les noms de catégories*/}
         {data.categories.map((elem, index) => {
           // console.log(elem);
-          return (
-            <div key={index}>
-              <h2>{elem.name}</h2>
-              <div className="menu">
-                {elem.meals.map((menu) => {
-                  //console.log(menu);
-                  return (
-                    <Menu
-                      key={menu.id}
-                      title={menu.title}
-                      description={menu.description}
-                      price={menu.price}
-                      popular={menu.popular}
-                      picture={menu.picture}
-                    />
-                  );
-                })}
+          if (elem.meals.length !== 0) {
+            return (
+              <div key={index}>
+                <h2>{elem.name}</h2>
+                <div className="menu-container">
+                  {elem.meals.map((menu) => {
+                    //console.log("longueur meal>>", elem.meals.length);
+                    return (
+                      <Menu
+                        key={menu.id}
+                        title={menu.title}
+                        description={menu.description}
+                        price={menu.price}
+                        popular={menu.popular}
+                        picture={menu.picture}
+                      />
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          );
+            );
+          } else {
+            return null;
+          }
         })}
       </div>
     </div>
