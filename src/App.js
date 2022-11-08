@@ -53,20 +53,21 @@ function App() {
           return (
             <div key={index}>
               <h2>{elem.name}</h2>
-
-              {elem.meals.map((menu) => {
-                //console.log(menu);
-                return (
-                  <Menu
-                    key={menu.id}
-                    title={menu.title}
-                    description={menu.description}
-                    price={menu.price}
-                    popular={menu.popular}
-                    picture={menu.picture}
-                  />
-                );
-              })}
+              <div className="menu">
+                {elem.meals.map((menu) => {
+                  //console.log(menu);
+                  return (
+                    <Menu
+                      key={menu.id}
+                      title={menu.title}
+                      description={menu.description}
+                      price={menu.price}
+                      popular={menu.popular}
+                      picture={menu.picture}
+                    />
+                  );
+                })}
+              </div>
             </div>
           );
         })}
