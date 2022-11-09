@@ -14,7 +14,7 @@ const Menu = ({
       className="menu"
       onClick={() => {
         // le clic se fait uniquement sur un élément HTML, jamais sur un composant
-        // on crée un objet pour traiter notre menu tout au long du processus
+        // on crée un objet qui contient les infos de notre objet venant de <Menu /> pour traiter notre menu tout au long du processus
         const objet = {
           id: id,
           title: title,

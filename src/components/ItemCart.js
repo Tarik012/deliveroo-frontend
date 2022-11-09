@@ -24,7 +24,7 @@ const ItemCart = ({ item, handleAdd, handleRemove }) => {
         <p>{item.title}</p>
       </div>
       <div>
-        <p>{item.price * item.quantity} €</p>
+        <p>{(item.price * item.quantity).toFixed(2)} €</p>
       </div>
     </div>
   );

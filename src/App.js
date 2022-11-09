@@ -45,18 +45,18 @@ function App() {
   }, [cart]); // à chaque fois que mon panier change, permets d'afficher le total an ajoutant un menu différent du premier
 
   const totalCommande = () => {
-    let sousTotalCommande = 0;
+    let sousTotalCommande = 0; // instancier pour ne pas avoir de undefined ou un problème de NaN si price est un string
     for (let i = 0; i < cart.length; i++) {
       sousTotalCommande += cart[i].price * cart[i].quantity;
     }
-    setSousTotal(sousTotalCommande);
-    setTotal(sousTotalCommande + 2.5); // gérer autrement les frais de livraison !!!
+    setSousTotal(sousTotalCommande.toFixed(2));
+    setTotal((sousTotalCommande + 2.5).toFixed(2)); // gérer autrement les frais de livraison !!!
   };
 
   const handleRemove = (item) => {
     // au clic sur le moins, on retire un article (<=> dimininuer la quantité de 1)
     const newCart = [...cart];
-    const found = cart.find((elem) => {
+    const found = newCart.find((elem) => {
       return elem.id === item.id;
     });
 
@@ -69,7 +69,7 @@ function App() {
 
   const handleAdd = (item) => {
     const newCart = [...cart];
-    const found = cart.find((elem) => {
+    const found = newCart.find((elem) => {
       return elem.id === item.id; //retourne l'objet found
     });
 
@@ -124,6 +124,7 @@ function App() {
               }
             })}
           </div>
+          {/* mettre une condition pour afficher le panier => item.quantity !== 1 ? () : ()*/}
           <div className="item-cart">
             <div className="title-itemcart">
               <h1>Valider mon panier</h1>
