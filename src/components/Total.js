@@ -1,10 +1,10 @@
-const Total = ({ getSousTotal, getTotal }) => {
+const Total = ({ sousTotal, total }) => {
   return (
     <>
       <div className="sous-total">
         <div>
           <p>Sous-total</p>
-          <p>{getSousTotal}</p>
+          <p>{sousTotal} €</p>
         </div>
         <div>
           <p>Frais de livraison</p>
@@ -12,10 +12,8 @@ const Total = ({ getSousTotal, getTotal }) => {
         </div>
       </div>
       <div className="total">
-        <div>
-          <p>Total</p>
-          <p>{getTotal}</p>
-        </div>
+        <p>Total</p>
+        <p>{total} €</p>
       </div>
     </>
   );

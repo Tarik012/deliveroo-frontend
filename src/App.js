@@ -20,8 +20,8 @@ function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [cart, setCart] = useState([]);
-  const [sousTotal, setSousTotal] = useState();
-  const [total, setTotal] = useState();
+  const [sousTotal, setSousTotal] = useState(0);
+  const [total, setTotal] = useState(0);
 
   // récupération des données du fichier JSON
   const fetchData = async () => {
@@ -42,9 +42,19 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [cart]); // à chaque fois que mon panier change, permets d'afficher le total an ajoutant un menu différent du premier
+
+  const totalCommande = () => {
+    let sousTotalCommande = 0;
+    for (let i = 0; i < cart.length; i++) {
+      sousTotalCommande += cart[i].price * cart[i].quantity;
+    }
+    setSousTotal(sousTotalCommande);
+    setTotal(sousTotalCommande + 2.5); // gérer autrement les frais de livraison !!!
+  };
 
   const handleRemove = (item) => {
+    // au clic sur le moins, on retire un article (<=> dimininuer la quantité de 1)
     const newCart = [...cart];
     const found = cart.find((elem) => {
       return elem.id === item.id;
@@ -53,8 +63,8 @@ function App() {
     if (found) {
       found.quantity -= 1;
     }
-    //console.log("found", found);
     setCart(newCart);
+    totalCommande(); // on calcule notre sous-total ains que le total
   };
 
   const handleAdd = (item) => {
@@ -65,22 +75,11 @@ function App() {
 
     if (!found) {
       newCart.push(item); //ajout nouveau menu
-      setTotal(item.price);
     } else {
       found.quantity += 1;
-      setTotal(1);
     }
-
-    //console.log("found", found);
     setCart(newCart);
-  };
-
-  const getSousTotal = (cart) => {
-    console.log("cart=>", cart);
-  };
-
-  const getTotal = (cart) => {
-    console.log("test");
+    totalCommande(); // calcule le sous-total et le total
   };
 
   return isLoading ? (
@@ -129,11 +128,11 @@ function App() {
             <div className="title-itemcart">
               <h1>Valider mon panier</h1>
             </div>
-            <div>
+            <div className="meals-cart">
               {cart.map((item, index) => {
                 //console.log("title dans mon map =>", item.title);
 
-                if (item.quantity < 1) return null;
+                if (item.quantity < 1) return null; // n'affiche pas le panier s'il n'y a pas de menu sélectionné
 
                 return (
                   <ItemCart
@@ -148,7 +147,7 @@ function App() {
               })}
             </div>
             <div className="total-manage">
-              <Total getSousTotal={getSousTotal} getTotal={getTotal} />
+              <Total sousTotal={sousTotal} total={total} />
             </div>
           </div>
         </div>

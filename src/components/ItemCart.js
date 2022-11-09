@@ -1,8 +1,8 @@
 const ItemCart = ({ item, handleAdd, handleRemove }) => {
-  //console.log("title", title, price);
+  //console.log("title, price", item.title, item.price);
   return (
-    <div>
-      <div className="cart-manage">
+    <div className="cart-manage">
+      <div className="button-cart">
         <button
           onClick={() => {
             handleRemove(item);
@@ -18,9 +18,13 @@ const ItemCart = ({ item, handleAdd, handleRemove }) => {
         >
           +
         </button>
+      </div>
 
+      <div>
         <p>{item.title}</p>
-        <p>{item.price * item.quantity}</p>
+      </div>
+      <div>
+        <p>{item.price * item.quantity} €</p>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-//import star from "../assets/images/star.png";
+//import star from "../assets/images/star.jpeg";
 
 const Menu = ({
   id,
@@ -13,6 +13,8 @@ const Menu = ({
     <div
       className="menu"
       onClick={() => {
+        // le clic se fait uniquement sur un élément HTML, jamais sur un composant
+        // on crée un objet pour traiter notre menu tout au long du processus
         const objet = {
           id: id,
           title: title,
@@ -30,8 +32,8 @@ const Menu = ({
         <div className="price">
           <p>{price} €</p>
           <p className={popular ? "red" : ""}>
+            {/* <span>{popular && <img src={star} alt="star"></img>}</span>*/}
             Populaire
-            {/* <span>{popular && <img src={star}></img>}</span>  */}
           </p>
         </div>
       </div>
