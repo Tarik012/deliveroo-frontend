@@ -6,7 +6,7 @@ const Header = ({ restaurant }) => {
         <p>{restaurant.description}</p>
       </div>
       <div className="picture-restaurant">
-        <img src={restaurant.picture} alt="photo restaurant"></img>
+        <img src={restaurant.picture} alt="restaurant"></img>
       </div>
     </div>
   );
